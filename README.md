@@ -1,4 +1,4 @@
-# 1gam-shmup
+# 1gam-shmup-downgrade
 
 [Live version](http://zekoff.com/1gam-shmup-downgrade/)
 

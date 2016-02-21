@@ -27,6 +27,7 @@ module.exports = {
         // create title image
         game.add.image(0, 0, 'title_image');
         game.add.bitmapText(400, 230, 'font', "SHMUP", 80).anchor.set(0.5);
+        game.add.bitmapText(500, 300, 'font', 'downgrade', 50).anchor.set(0.5);
         // create main "play" button
         var playButton = game.add.image(250, 400, 'metalPanel');
         playButton.width = 300;

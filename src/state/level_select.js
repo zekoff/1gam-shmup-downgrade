@@ -5,12 +5,12 @@ var state = {};
 
 var BLUE = 0x36bbf5;
 var GREEN = 0x71c937;
-var YELLOW = 0xb1c937;
-var ORANGE = 0xac8039;
+var YELLOW = 0x36bbf5;
+var ORANGE = 0x36bbf5;
 var RED = 0xac3939;
-var DARK_RED = 0xcc2929;
+var DARK_RED = 0x36bbf5;
 var GREY = 0x404040;
-var DIFFICULTY_COLORS = [GREEN, YELLOW, ORANGE, RED, DARK_RED];
+var DIFFICULTY_COLORS = [BLUE, BLUE, BLUE, BLUE, BLUE];
 var MUSIC_VOLUME = 0.1;
 
 var Stage = function(name, x) {
@@ -164,7 +164,7 @@ state.create = function() {
         tween.to({
             x: this.selectedStage.x,
             y: this.selectedStage.y
-        }, 3000);
+        }, 1);
         tween.onComplete.add(function() {
             game.state.start('main');
         });
@@ -209,9 +209,11 @@ state.create = function() {
                 stage.width = stage.height = 30;
                 this.pulseTween = game.add.tween(stage);
                 this.pulseTween.to({
-                    width: 60,
-                    height: 60
+                    // width: 60,
+                    // height: 60
                 }, 1000, Phaser.Easing.Sinusoidal.InOut, false, 0, -1, true);
+                stage.width = 60;
+                stage.height = 60;
                 this.pulseTween.start();
             }, this, 0, stage);
         }, this);
@@ -219,7 +221,7 @@ state.create = function() {
 };
 
 state.update = function() {
-    this.background.tilePosition.y += 10 * game.time.physicsElapsed;
+    // this.background.tilePosition.y += 10 * game.time.physicsElapsed;
 };
 
 module.exports = state;

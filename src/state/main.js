@@ -37,4 +37,21 @@ state.update = function() {
     });
 };
 
+state.render = function() {
+    if (shmup.player.alive)
+        game.debug.body(shmup.player, '#ffff00');
+    shmup.playerBullets.forEach(function(playerBullet) {
+        if (playerBullet.alive)
+            game.debug.body(playerBullet, '#008080');
+    });
+    shmup.enemies.forEach(function(enemy) {
+        if (enemy.alive && enemy.body.x != 0 && enemy.body.y != 0)
+            game.debug.body(enemy, '#FF0000');
+    });
+    shmup.enemyBullets.forEach(function(enemyBullet) {
+        if (enemyBullet.alive)
+            game.debug.body(enemyBullet, '#ff8000');
+    });
+};
+
 module.exports = state;

@@ -11,6 +11,7 @@ BulletPool.prototype.getBullet = function() {
     var shot = this.getFirstDead();
     if (!shot) {
         shot = game.make.sprite(this.x, this.y, this.key);
+        shot.alpha = 0;
         shot.height = 24;
         shot.width = 8;
         shot.anchor.set(0.5);

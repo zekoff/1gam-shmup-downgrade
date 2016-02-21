@@ -4,7 +4,13 @@ var Pickup = function(x, y, pickupType) {
         if (game.rnd.frac() < 0.8) pickupType = 'star';
         else pickupType = game.rnd.pick(['powerup_red', 'powerup_green', 'powerup_blue']);
     }
-    Phaser.Sprite.call(this, game, x, y, pickupType);
+    var displayCharacterMap = {
+        'star': '*',
+        'powerup_red': 'G',
+        'powerup_green': 'S',
+        'powerup_blue': 'M'
+    };
+    Phaser.BitmapText.call(this, game, x, y, 'font', displayCharacterMap[pickupType]);
     this.pickupType = pickupType;
     this.checkWorldBounds = true;
     this.outOfBoundsKill = true;
@@ -25,7 +31,7 @@ var Pickup = function(x, y, pickupType) {
             break;
     }
 };
-Pickup.prototype = Object.create(Phaser.Sprite.prototype);
+Pickup.prototype = Object.create(Phaser.BitmapText.prototype);
 Pickup.prototype.constructor = Pickup;
 Pickup.prototype.update = function() {
     // if (this.pickupType == 'star') this.angle += 90 * game.time.physicsElapsed;

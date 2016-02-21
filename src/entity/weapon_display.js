@@ -23,15 +23,15 @@ var WeaponDisplay = function() {
     this.blueBackground.exists = false;
     this.add(this.blueBackground);
     // icons
-    this.redIcon = game.make.image(40, 70, 'powerup_red');
+    this.redIcon = game.make.bitmapText(40, 70, 'font', 'G');
     this.redIcon.width = 20;
     this.redIcon.height = 20;
     this.add(this.redIcon);
-    this.greenIcon = game.make.image(10, 70, 'powerup_green');
+    this.greenIcon = game.make.bitmapText(10, 70, 'font', 'S');
     this.greenIcon.width = 20;
     this.greenIcon.height = 20;
     this.add(this.greenIcon);
-    this.blueIcon = game.make.image(70, 70, 'powerup_blue');
+    this.blueIcon = game.make.bitmapText(70, 70, 'font', 'M');
     this.blueIcon.width = 20;
     this.blueIcon.height = 20;
     this.add(this.blueIcon);
@@ -44,7 +44,7 @@ var WeaponDisplay = function() {
         bar = game.make.image(40, 10 + (15 * (3 - i)), 'pix');
         bar.height = 10;
         bar.width = 20;
-        bar.tint = 0xac3939;
+        bar.tint = 0xffffff;
         this.redBars.push(bar);
         this.add(bar);
     }
@@ -52,7 +52,7 @@ var WeaponDisplay = function() {
         bar = game.make.image(10, 10 + (15 * (3 - i)), 'pix');
         bar.height = 10;
         bar.width = 20;
-        bar.tint = 0x71c937;
+        bar.tint = 0xffffff;
         this.greenBars.push(bar);
         this.add(bar);
     }
@@ -60,16 +60,16 @@ var WeaponDisplay = function() {
         bar = game.make.image(70, 10 + (15 * (3 - i)), 'pix');
         bar.height = 10;
         bar.width = 20;
-        bar.tint = 0x36bbf5;
+        bar.tint = 0xffffff;
         this.blueBars.push(bar);
         this.add(bar);
     }
 };
 WeaponDisplay.prototype = Object.create(Phaser.Group.prototype);
 WeaponDisplay.prototype.constructor = WeaponDisplay;
-WeaponDisplay.prototype.RED = 0xac3939;
-WeaponDisplay.prototype.GREEN = 0x71c937;
-WeaponDisplay.prototype.BLUE = 0x36bbf5;
+WeaponDisplay.prototype.RED = 0xffffff;
+WeaponDisplay.prototype.GREEN = 0xffffff;
+WeaponDisplay.prototype.BLUE = 0xffffff;
 WeaponDisplay.prototype.GREY = 0x404040;
 WeaponDisplay.prototype.update = function() {
     this.redBars.forEach(function(bar) {

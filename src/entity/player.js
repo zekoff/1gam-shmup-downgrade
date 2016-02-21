@@ -7,6 +7,7 @@ var Player = function() {
     this.shotTimer = 0;
     this.body.setSize(this.body.width * .4, this.body.height * .4, 0, 5);
     this.body.collideWorldBounds = true;
+    this.alpha = 0;
 
     this.weapons = [shotgun, gatling, missile];
     shmup.data.ship.currentWeapon = 0;
@@ -32,8 +33,8 @@ Player.prototype.boostWeapon = function(weaponNumber) {
 };
 Player.prototype.hit = function() {
     if (this.invulnerable) return;
-    shmup.emitter.burst(this.x, this.y);
-    game.sound.play('boss_explode', 0.3);
+    // shmup.emitter.burst(this.x, this.y);
+    // game.sound.play('boss_explode', 0.3);
     this.kill();
     shmup.data.ship.weaponLevels[shmup.data.ship.currentWeapon] = 1;
     this.invulnerable = true;
@@ -43,10 +44,10 @@ Player.prototype.hit = function() {
             shmup.data.ship.lives--;
             this.x = 400;
             this.y = 500;
-            this.alpha = 0.5;
+            // this.alpha = 0.5;
             this.revive();
             game.time.events.add(3000, function() {
-                this.alpha = 1;
+                // this.alpha = 1;
                 this.invulnerable = false;
             }, this);
         }, this);

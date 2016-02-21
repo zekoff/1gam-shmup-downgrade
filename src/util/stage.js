@@ -13,8 +13,8 @@ var MUSIC_TRACKS = [
 ];
 var MUSIC_VOLUME = 0.1;
 
-var INTRO_LENGTH = 4000;
-var OUTRO_LENGTH = 4000;
+var INTRO_LENGTH = 500;
+var OUTRO_LENGTH = 500;
 var WARP_SPEED = 3000;
 
 // Seed is a string that will be used to init the RNG.
@@ -25,6 +25,7 @@ var Stage = function(seed, difficulty) {
     stageNumberText.anchor.set(0.5);
     var stageNameText = game.add.bitmapText(400, 200, 'font', '"' + shmup.data.stage.name + '"', 36);
     stageNameText.anchor.set(0.5);
+    stageNameText.alpha = 0;
     game.time.events.add(INTRO_LENGTH / 4 * 3, function() {
         game.add.tween(stageNumberText).to({
             alpha: 0
@@ -40,6 +41,7 @@ var Stage = function(seed, difficulty) {
     this.background = game.add.tileSprite(0, 0, 800, 600, 'starfield');
     this.background.fixedToCamera = true;
     this.backgroundSpeed = 0;
+    this.background.alpha = 0.4;
     this.waves = [];
     var numWaves = 9 + (difficulty * 3);
     this.secondsBetweenWaves = (6.5 - this.difficulty * 0.5);
@@ -196,6 +198,7 @@ var UFO_IMAGE_KEYS = ['ufoBlue', 'ufoGreen', 'ufoRed', 'ufoYellow'];
 var Ufo = function() {
     Phaser.Sprite.call(this, game, 0, 60, game.rnd.pick(UFO_IMAGE_KEYS));
     this.anchor.set(0.5);
+    this.alpha = 0;
     game.physics.arcade.enable(this);
     this.body.setSize(this.body.width * .8, this.body.height * .8);
     this.checkWorldBounds = true;
